@@ -1,9 +1,13 @@
 import React from 'react';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { addDecorator, storiesOf } from '@storybook/react';
+import { addDecorator, setAddon, storiesOf } from '@storybook/react';
 import { Button, Segment } from 'semantic-ui-react';
 
+import JSXAddon from 'storybook-addon-jsx';
+
 import '../semantic/dist/semantic.min.css';
+
+setAddon(JSXAddon);
 
 addDecorator(withKnobs);
 
@@ -26,5 +30,10 @@ storiesOf('Basics', module)
 
 storiesOf('Atoms/Form/Button', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
-    .add('Basic', () => <><Button basic color='black'>{text('Label', 'This is a button')}</Button></>)
+    .addWithJSX('Basic', () => <><Button basic color={text('Button color', 'black')}>{text('Label', 'This is a button')}</Button></>, 
+        {
+            info: {
+                propTablesExclude: ['as']
+            }
+        })
     .add('Variation', () => <><Button basic color='black'>This is a button</Button></>)
