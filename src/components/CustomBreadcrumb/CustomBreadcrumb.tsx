@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Breadcrumb, Segment } from 'semantic-ui-react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, setAddon } from '@storybook/react';
+import JSXAddon from 'storybook-addon-jsx';
+
+setAddon(JSXAddon);
 
 const CustomBreadcrumb: React.SFC<{}> = () => {
     return(
@@ -18,6 +21,6 @@ export default CustomBreadcrumb;
 
 storiesOf('Breadcrumb', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
-    .add('Basic', () => <>
+    .addWithJSX('Basic', () => <>
         <CustomBreadcrumb />
     </>)
