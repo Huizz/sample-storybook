@@ -1,0 +1,9 @@
+# ignore the dist folder from semantic build
+semantic/*
+!semantic/dist/
+semantic/dist/*
+!semantic/dist/semantic.min.css
+!semantic/dist/semantic.css
+.Ds_Store
+.cache/
+node_modules/

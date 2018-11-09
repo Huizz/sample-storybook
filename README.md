@@ -1,0 +1,1 @@
+Vulnerabilities related to semantic-ui fixed with ` npm audit fix --force `
