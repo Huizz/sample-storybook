@@ -1,5 +1,11 @@
 .ui.breadcrumb {
+    position: relative;
     font-size: 14px;
+
+    a {
+        text-decoration: none;
+    }
+
     .section {
         color: $grain;
         padding: 8px;
@@ -15,9 +21,16 @@
         }
     }
 
-    // .right.angle.icon {
-    //     display: inline-block;
-    //     height: 16px;
-    //     width: 16px;
-    // }
+    .right.angle.icon {
+        display: inline-block;
+        position: relative;
+        height: 16px;
+        width: 16px;
+
+        &:before {
+            content: '\003e';
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
 }

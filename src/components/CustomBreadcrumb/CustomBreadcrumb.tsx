@@ -5,22 +5,61 @@ import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
-const CustomBreadcrumb: React.SFC<{}> = () => {
+interface IBreadcrumbItem {
+    name: string
+    link: string
+}
+interface IProps {
+    items: IBreadcrumbItem[];
+    // currentPath: string;
+}
+
+// const CustomBreadcrumb: React.SFC<{}> = () => {
+//     return(
+//         <Breadcrumb>
+//             <Breadcrumb.Section link>Home</Breadcrumb.Section>
+//             <Breadcrumb.Divider icon='right angle' />
+//             <Breadcrumb.Section link>Store</Breadcrumb.Section>
+//             <Breadcrumb.Divider icon='right angle' />
+//             <Breadcrumb.Section active>T-Shirt</Breadcrumb.Section>
+//         </Breadcrumb>
+//     )
+// }
+
+const CustomBreadcrumb: React.SFC<IProps> = (props) => {
     return(
         <Breadcrumb>
-            <Breadcrumb.Section link>Home</Breadcrumb.Section>
-            <Breadcrumb.Divider icon='right angle' />
-            <Breadcrumb.Section link>Store</Breadcrumb.Section>
-            <Breadcrumb.Divider icon='right angle' />
-            <Breadcrumb.Section active>T-Shirt</Breadcrumb.Section>
+            {props.items.map((item, index) => {
+                return (
+                    <>
+                        <Breadcrumb.Section className={index === props.items.length - 1 ? 'active' : ''} link href={item.link}>{item.name}</Breadcrumb.Section>
+                        {index < props.items.length - 1 ? <Breadcrumb.Divider icon='right angle' /> : ''}
+                    </>
+                )
+            })}
         </Breadcrumb>
     )
 }
 
 export default CustomBreadcrumb;
 
+const breadcrumbs = [
+    {
+        name: 'Home',
+        link: '/client'
+    },
+    {
+        name: 'Form',
+        link: '/client/form'
+    },
+    {
+        name: 'Here',
+        link: '/client/here'
+    }
+]
+
 storiesOf('Breadcrumb', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
     .addWithJSX('Basic', () => <>
-        <CustomBreadcrumb />
+        <CustomBreadcrumb  items={breadcrumbs}/>
     </>)
