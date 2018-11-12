@@ -775,6 +775,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.segment.inverted.tan {
   background-color: #C09F80;
 }
+
+@media only screen and (min-width: 992px) {
+  .ui.button.basic {
+    background: black;
+  }
+}
 /*!
  * # Semantic UI 2.4.2 - Button
  * http://github.com/semantic-org/semantic-ui/
@@ -20147,6 +20153,10 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
+
+.breadcrumb.section {
+  color: red;
+}
 /*!
  * # Semantic UI 2.4.2 - Form
  * http://github.com/semantic-org/semantic-ui/
