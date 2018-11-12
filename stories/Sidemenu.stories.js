@@ -5,8 +5,6 @@ import { Button, Segment } from 'semantic-ui-react';
 
 import SideMenu from '../src/components/SideMenu/SideMenu';
 
-import '../semantic/dist/semantic.min.css';
-
 const store = new Store({
     showSideMenu: false
 });

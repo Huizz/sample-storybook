@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { Segment } from 'semantic-ui-react';
 import SearchBar from '../src/components/SearchBar/SearchBar';
 
-import '../semantic/dist/semantic.min.css';
-
 storiesOf('Search bar', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
     .add('Basic', () => <>

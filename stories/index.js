@@ -5,8 +5,6 @@ import { Button, Segment } from 'semantic-ui-react';
 
 import JSXAddon from 'storybook-addon-jsx';
 
-import '../semantic/dist/semantic.min.css';
-
 setAddon(JSXAddon);
 
 addDecorator(withKnobs);
