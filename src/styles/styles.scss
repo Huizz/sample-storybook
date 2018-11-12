@@ -1,0 +1,50 @@
+/*********************
+    Global variables   
+**********************/
+$grain: #D7CECC;
+$blackboard: #565656;
+$oxblood: #76323F;
+$tan: #C09F80;
+
+/*********************
+    Global styles   
+**********************/
+body {
+    font-size: 14px;
+    // color: red;
+}
+
+.ui.grain {
+    background-color: $grain;
+}
+
+.ui.blackboard {
+    background-color: $blackboard;
+    color: #fff;
+}
+
+.ui.oxblood {
+    background-color: $oxblood;
+    color: #fff;
+}
+
+.ui.tan {
+    background-color: $tan;
+    color: #fff;
+}
+
+/********************
+    Segment styles
+*********************/
+.ui.segment {
+    padding: 24px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/******************************
+    Import components styles
+*******************************/
+@import '../components/Button/Button.scss';
+@import '../components/CustomBreadcrumb/CustomBreadcrumb.scss';
+

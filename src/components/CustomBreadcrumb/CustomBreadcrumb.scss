@@ -1,0 +1,23 @@
+.ui.breadcrumb {
+    font-size: 14px;
+    .section {
+        color: $grain;
+        padding: 8px;
+        display: inline-block;
+
+        &.active {
+            color: $oxblood;
+            text-decoration: underline;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    // .right.angle.icon {
+    //     display: inline-block;
+    //     height: 16px;
+    //     width: 16px;
+    // }
+}

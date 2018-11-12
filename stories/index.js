@@ -5,6 +5,8 @@ import { Button, Segment } from 'semantic-ui-react';
 
 import JSXAddon from 'storybook-addon-jsx';
 
+import '../src/styles/styles.scss';
+
 setAddon(JSXAddon);
 
 addDecorator(withKnobs);
@@ -13,16 +15,16 @@ storiesOf('Basics', module)
     .add('Colours', () => 
         <div>
             <Segment className='grain' inverted>
-                Grain
+                Grain #D7CECC
             </Segment>
             <Segment className='blackboard' inverted>
-                Blackboard
+                Blackboard #565656
             </Segment>
-            <Segment className='Oxblood' inverted>
-                Oxblood
+            <Segment className='oxblood' inverted>
+                Oxblood #76323F
             </Segment>
             <Segment className='tan' inverted>
-                Tan
+                Tan #C09F80
             </Segment>
         </div>)
 

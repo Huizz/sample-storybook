@@ -1,0 +1,11 @@
+.ui.button {
+    border: 1px solid $oxblood;
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+
+    &.black {
+       border-color: #000;
+    }
+}
