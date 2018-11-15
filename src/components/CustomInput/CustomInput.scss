@@ -1,0 +1,26 @@
+.ui.input {
+  // with label
+  &.labeled {
+
+  }
+
+  // for labels inside input
+  > .ui.label {
+    font-size: 14px;
+    color: grey;
+  }
+
+  // the actual input
+  > input {
+    border: 1px solid $oxblood;
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 14px;
+    max-width: 200px;
+
+    &::placeholder {
+      color: $oxblood;
+      opacity: 0.5;
+    }
+  }
+}
