@@ -4,8 +4,23 @@
     padding: 16px;
     text-align: center;
     font-size: 14px;
+    max-width: 200px;
 
     &.black {
        border-color: #000;
+    }
+
+    &.tan {
+        color: $tan;
+        border-color: $tan;
+    }
+
+    &.inverted {
+        border: none;
+
+        &.tan {
+            background-color: $tan;
+            color: #fff;
+        }
     }
 }

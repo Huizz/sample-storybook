@@ -5,7 +5,8 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 
 interface IProps {
     buttonText: string,
-    color: any
+    color: any,
+    inverted?: boolean,
 }
 const CustomButton: React.SFC<IProps> = (props) => {
     return (
