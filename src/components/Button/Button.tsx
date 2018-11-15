@@ -15,6 +15,6 @@ const CustomButton: React.SFC<IProps> = (props) => {
 }
 
 addDecorator(withKnobs);
-storiesOf('Button', module)
+storiesOf('Form/Button', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
     .addWithJSX('Basic', () => <CustomButton color={text('Button color', 'black')} buttonText={text('Label', 'This is a button')}/>)

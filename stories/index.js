@@ -28,12 +28,12 @@ storiesOf('Basics', module)
             </Segment>
         </div>)
 
-storiesOf('Atoms/Form/Button', module)
-    .addDecorator(story => <Segment>{story()}</Segment>)
-    .addWithJSX('Basic', () => <><Button basic color={text('Button color', 'black')}>{text('Label', 'This is a button')}</Button></>, 
-        {
-            info: {
-                propTablesExclude: ['as']
-            }
-        })
-    .add('Variation', () => <><Button basic color='black'>This is a button</Button></>)
+// storiesOf('Atoms/Form/Button', module)
+//     .addDecorator(story => <Segment>{story()}</Segment>)
+//     .addWithJSX('Basic', () => <><Button basic color={text('Button color', 'black')}>{text('Label', 'This is a button')}</Button></>, 
+//         {
+//             info: {
+//                 propTablesExclude: ['as']
+//             }
+//         })
+//     .add('Variation', () => <><Button basic color='black'>This is a button</Button></>)

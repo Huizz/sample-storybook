@@ -30,7 +30,7 @@ const CustomInput: React.SFC<IProps> = (props) => {
 }
 
 addDecorator(withKnobs);
-storiesOf('Input', module)
+storiesOf('Form/Input', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
     .addWithJSX('Basic', () => <CustomInput type={text('Input type', 'text')} 
                                             name={text('Input name', 'text-input')} 
