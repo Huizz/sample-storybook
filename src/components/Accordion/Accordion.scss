@@ -1,0 +1,35 @@
+.ui.accordion {
+  .title {
+    display: block;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    &.active {
+      margin-bottom: 0;
+      border-radius: 4px 4px 0 0;
+    }
+  }
+
+  // @TODO: animation when dropdown opens
+  .content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 2s, padding-top 0 ease-out;
+    border: none;
+    margin-bottom: 8px;
+
+    &.active {
+      max-height: 500px;
+      transition: max-height 2s, padding-top 0.15s ease-in;
+      border: 1px solid black;
+      border-top: none;
+    }
+
+    > .content--body {
+      padding: 16px;
+    }
+  }
+}
