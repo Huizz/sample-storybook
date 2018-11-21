@@ -5,16 +5,16 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 
 interface IProps {
     buttonText: string,
-    color: any,
-    inverted?: boolean,
+    primary?: any,
+    secondary?: any,
 }
 const CustomButton: React.SFC<IProps> = (props) => {
     return (
-        <Button basic color={props.color}>{props.buttonText}</Button>
+        <Button basic {...props}>{props.buttonText}</Button>
     )
 }
 
 addDecorator(withKnobs);
 storiesOf('Form/Button', module)
     .addDecorator(story => <Segment>{story()}</Segment>)
-    .addWithJSX('Basic', () => <CustomButton color={text('Button color', 'black')} buttonText={text('Label', 'This is a button')}/>)
+    .addWithJSX('Basic', () => <><CustomButton primary buttonText={text('Label', 'This is a button')}/><CustomButton secondary buttonText={text('Label', 'This is a button')}/></>)

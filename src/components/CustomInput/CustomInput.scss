@@ -12,14 +12,14 @@
 
   // the actual input
   > input {
-    border: 1px solid $oxblood;
+    border: 1px solid $secondaryBlue;
     border-radius: 4px;
     padding: 16px;
     font-size: 14px;
     max-width: 200px;
 
     &::placeholder {
-      color: $oxblood;
+      color: $secondaryBlue;
       opacity: 0.5;
     }
   }

@@ -1,26 +1,20 @@
 .ui.button {
-    border: 1px solid $oxblood;
     border-radius: 4px;
-    padding: 16px;
+    padding: 6px 8px;
     text-align: center;
-    font-size: 14px;
-    max-width: 200px;
+    font-size: 16px;
+    line-height: 24px;
+    min-width: 304px;
+    cursor: pointer;
 
-    &.black {
-       border-color: #000;
+    &.primary {
+      background-color: $primaryBlue;
+      color: #fff;
     }
 
-    &.tan {
-        color: $tan;
-        border-color: $tan;
-    }
-
-    &.inverted {
-        border: none;
-
-        &.tan {
-            background-color: $tan;
-            color: #fff;
-        }
+    &.secondary {
+        background-color: none;
+        border-color: $secondaryBlue;
+        color: $secondaryBlue;
     }
 }

@@ -1,45 +1,55 @@
 /*********************
     Global variables   
 **********************/
-$grain: #D7CECC;
-$blackboard: #565656;
-$oxblood: #76323F;
-$tan: #C09F80;
+
+@import './variables.scss';
+@import './fonts.scss';
+// $grain: #D7CECC;
+// $blackboard: #565656;
+// $oxblood: #76323F;
+// $tan: #C09F80;
+$primary: $primaryBlue;
 
 /*********************
     Global styles   
 **********************/
 body {
-    font-size: 14px;
-    // color: red;
+  font-size: 14px;
+  // color: red;
+  font-family: 'OpenSans, Arial, Helvetica, sans-serif';
 }
 
-.ui.grain {
-    background-color: $grain;
+.ui.color.primary {
+  background-color: $primaryBlue;
+  color: #fff;
 }
 
-.ui.blackboard {
-    background-color: $blackboard;
-    color: #fff;
+.ui.color.secondary {
+  background-color: $secondaryBlue;
+  color: #fff;
 }
 
-.ui.oxblood {
-    background-color: $oxblood;
-    color: #fff;
+h1 {
+  font-family: 'Merriweather';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
 }
 
-.ui.tan {
-    background-color: $tan;
-    color: #fff;
+h2 {
+  font-family: 'Merriweather';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
 }
 
 /********************
     Segment styles
 *********************/
 .ui.segment {
-    padding: 24px;
-    margin-bottom: 8px;
-    border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 
 /******************************
@@ -50,4 +60,4 @@ body {
 @import '../components/CustomInput/CustomInput.scss';
 @import '../components/SearchBar/SearchBar.scss';
 @import '../components/Accordion/Accordion.scss';
-// @import '../../semantic/dist/semantic.min.css';
+@import '../../semantic/dist/semantic.min.css';

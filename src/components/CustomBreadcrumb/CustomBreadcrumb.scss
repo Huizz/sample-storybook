@@ -7,12 +7,12 @@
     }
 
     .section {
-        color: $grain;
+        color: $secondaryBlue;
         padding: 8px;
         display: inline-block;
 
         &.active {
-            color: $oxblood;
+            color: $secondaryBlue;
             text-decoration: underline;
         }
 
