@@ -24,13 +24,16 @@ storiesOf('Basics', module)
       .add('Fonts', () => 
         <div>
           <Grid>
-            <Grid.Row>
-              <Grid.Column column={6}>
+            <Grid.Row columns={12}>
+              <Grid.Column width={6}>
                 <h1>H1 heading</h1>
               </Grid.Column>
               <Grid.Column>
                 <h2>H2 heading</h2>
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <h3>H3 heading</h3>
             </Grid.Row>
           </Grid>
         </div>
