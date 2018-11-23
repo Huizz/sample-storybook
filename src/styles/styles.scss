@@ -8,7 +8,6 @@
 // $blackboard: #565656;
 // $oxblood: #76323F;
 // $tan: #C09F80;
-$primary: $primaryBlue;
 
 /*********************
     Global styles   
@@ -17,6 +16,10 @@ body {
   font-size: 14px;
   // color: red;
   font-family: 'OpenSans, Arial, Helvetica, sans-serif';
+}
+
+.primary {
+  color: $primaryBlue;
 }
 
 .ui.color.primary {
@@ -59,6 +62,13 @@ h3 {
   border-radius: 4px;
 }
 
+/*****************
+    Grid styles
+******************/
+.ui.grid {
+  max-width: 944px;
+}
+
 /******************************
     Import components styles
 *******************************/
@@ -67,4 +77,4 @@ h3 {
 @import '../components/CustomInput/CustomInput.scss';
 @import '../components/SearchBar/SearchBar.scss';
 @import '../components/Accordion/Accordion.scss';
-@import '../../semantic/dist/semantic.min.css';
+// @import '../../semantic/dist/semantic.min.css';
