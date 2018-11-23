@@ -14,10 +14,10 @@ addDecorator(withKnobs);
 storiesOf('Basics', module)
     .add('Colours', () => 
         <div>
-            <Segment className='color primary' inverted>
+            <Segment className='color primary'>
                 Primary #005ea2
             </Segment>
-            <Segment className='color secondary' inverted>
+            <Segment className='color secondary'>
                 Secondary #346c9d
             </Segment>
         </div>)
@@ -27,6 +27,8 @@ storiesOf('Basics', module)
             <Grid.Row columns={12}>
               <Grid.Column width={6}>
                 <h1>H1 heading</h1>
+                <p>font-size:</p>
+                <p>font-size:</p>
               </Grid.Column>
               <Grid.Column>
                 <h2>H2 heading</h2>
