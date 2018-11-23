@@ -7,10 +7,11 @@ interface IProps {
     buttonText: string,
     primary?: any,
     secondary?: any,
+    basic?: any,
 }
 const CustomButton: React.SFC<IProps> = (props) => {
     return (
-        <Button basic {...props}>{props.buttonText}</Button>
+        <Button {...props}>{props.buttonText}</Button>
     )
 }
 

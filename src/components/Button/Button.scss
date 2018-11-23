@@ -1,20 +1,20 @@
 .ui.button {
-    border-radius: 4px;
-    padding: 6px 8px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 24px;
-    min-width: 304px;
-    cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  min-width: 304px;
+  cursor: pointer;
 
-    &.primary {
-      background-color: $primaryBlue;
-      color: #fff;
-    }
+  &.primary {
+    background-color: $primaryBlue;
+    color: #fff;
+  }
 
-    &.secondary {
-        background-color: none;
-        border-color: $secondaryBlue;
-        color: $secondaryBlue;
-    }
+  &.secondary {
+    background-color: transparent;
+    border: 1px solid $secondaryBlue;
+    color: $secondaryBlue;
+  }
 }
