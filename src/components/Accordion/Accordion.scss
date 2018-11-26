@@ -17,15 +17,15 @@
   .content {
     overflow: hidden;
     max-height: 0;
-    transition: max-height 2s, padding-top 0 ease-out;
+    transition: max-height 1.5s ease-out;
     border: none;
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
 
     &.active {
       max-height: 500px;
-      transition: max-height 2s, padding-top 0.15s ease-in;
-      border: 1px solid black;
-      border-top: none;
+      transition: max-height 2s ease-out;
+      // border: 1px solid black;
+      // border-top: none;
     }
 
     > .content--body {
