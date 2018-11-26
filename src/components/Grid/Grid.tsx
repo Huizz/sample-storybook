@@ -57,20 +57,37 @@ const rowTwoColumns = [
 addDecorator(withKnobs);
 storiesOf('Grid', module)
     .addWithJSX('Basic', () => {
-      const column_one: IColumn = object('column one', {
+      const column_one: IColumn = object('two columm, column one', {
         columnWidth: '3'
       } as IColumn)
-      const column_two: IColumn = object('column two', {
+      const column_two: IColumn = object('two column,column two', {
         columnWidth: '9'
       } as IColumn)
+      const column_three: IColumn = object('three column,column one', {
+        columnWidth: '2'
+      } as IColumn)
+      const column_four: IColumn = object('three column,column two', {
+        columnWidth: '8'
+      } as IColumn)
+      const column_five: IColumn = object('three column,column three', {
+        columnWidth: '2'
+      } as IColumn)
 
-      const defaultColumns =  [column_one, column_two]
+      const defaultColumns =  [column_one, column_two];
+      const defaultThreeColumns = [column_three, column_four, column_five];
 
       return (
         <>
           <Segment><h3>Full width Column</h3><Grid columns={rowOneColumns} /></Segment>
           <Segment><h3>Columns</h3><Grid columns={rowTwoColumns} /></Segment>
-          <Segment><h3>Try it!</h3><Grid columns={defaultColumns} /></Segment>
+          <Segment><h3>Try it!</h3>
+            <div style={{marginBottom: '16px'}}>
+              <h4>Two column row</h4><Grid columns={defaultColumns} />
+            </div>
+            <div>
+              <h4>Three column row</h4><Grid columns={defaultThreeColumns} />
+            </div>
+          </Segment>
         </>
       )
     })
