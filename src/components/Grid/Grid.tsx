@@ -4,6 +4,8 @@ import { Grid as SemanticGrid, Segment } from 'semantic-ui-react';
 import { addDecorator, storiesOf } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
 
+import './Grid.scss';
+
 interface IColumn {
   columnWidth: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'
 }
@@ -16,8 +18,6 @@ interface IProps {
   rows?: IRow[];
   columns: IColumn[];
 }
-
-import './Grid.scss';
 
 const generateSingleRowColumns = (columns: IColumn[]) => {
   return columns.map((column, columnIndex) => {
@@ -56,6 +56,7 @@ const rowTwoColumns = [
 
 addDecorator(withKnobs);
 storiesOf('Grid', module)
+    .addDecorator(story => <div className="page--grid">{story()}</div>)
     .addWithJSX('Basic', () => {
       const column_one: IColumn = object('two columm, column one', {
         columnWidth: '3'
