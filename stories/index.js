@@ -9,8 +9,6 @@ import '../src/styles/styles.scss';
 
 setAddon(JSXAddon);
 
-addDecorator(withKnobs);
-
 storiesOf('Basics', module)
     .add('Colours', () => 
         <div>
