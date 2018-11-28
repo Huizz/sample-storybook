@@ -24,7 +24,7 @@ addDecorator(
 // load all files with the format *.stories.js inside stories folder
 const req = require.context('../stories', true, /.stories.js$/);
 // load all the components from src folder
-const reqTs = require.context('../src', true, /.*.(ts|tsx)$/);
+const reqTs = require.context('../src/components', true, /.*.(ts|tsx)$/);
 
 
 const loadStories = () => {
