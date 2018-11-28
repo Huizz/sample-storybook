@@ -1,87 +1,147 @@
 import * as React from 'react';
 import { Accordion as SemanticAccordion, Segment } from 'semantic-ui-react';
 import { storiesOf } from '@storybook/react';
-// import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
-interface IAccordionItem {
-  title: string;
-  content: string;
+interface IAccordionPanel {
+  title: any;
+  content: any;
+  icon?: Element;
+  iconSize?: number; 
 }
 
 interface IProps {
-  activeIndex: number;
-  accordionItems: IAccordionItem[];
-  onClick: (index: number) => void;
+  id: string;
+  panels: IAccordionPanel[];
+  exclusive?: boolean
 }
 
-interface IState {
-  activeIndex: number;
-}
+const propTypes = [
+  {
+    type: 'id',
+    required: true,
+    description: 'The HTML id attribute of the accordion'
+  },
+  {
+    type: 'panels',
+    required: true,
+    description: 'The content used for each panel'
+  },
+  {
+    type: 'exclusive',
+    required: false,
+    description: 'If set to true, only one panel can be opened at a time. Defaults to true'
+  }
+]
 
-class Accordion extends React.Component<IProps, IState> {
-  state = { activeIndex: this.props.activeIndex }
-  public render = () => {
-    return (
-      <>
-      <SemanticAccordion>
-        {this.props.accordionItems.map((accordionItem, index) => {
-          return (<>
-            <SemanticAccordion.Title key={'title-' + index} active={this.state.activeIndex === index} index={index} onClick={this.handleOnClick(this.props, index)}>
-              {accordionItem.title}
-            </SemanticAccordion.Title>
-            <SemanticAccordion.Content key={'content-' + index} active={this.state.activeIndex === index}>
-              <div className='content--body'>{accordionItem.content}</div>
-            </SemanticAccordion.Content>
-          </>)
+const createPropsTable = (propTypes: any) => {
+  return (
+    <div style={{marginBottom: '32px'}}>
+      <h2>Properties</h2>
+      <table>
+        <thead>
+          <td>Property</td>
+          <td>Required</td>
+          <td>Description</td>
+        </thead>
+        {propTypes.map((prop: any) => {
+          return (
+            <tr>
+              <td>{ prop.type }</td>
+              <td>{ prop.required? 'required' : '' }</td>
+              <td>{ prop.description }</td>
+            </tr>
+          )
         })}
-      </SemanticAccordion>
-      </>
-    )
-  }
-
-  handleOnClick = (props: IProps, index: number) => (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(index, 'index in handleOnClick');
-    this.setState({ activeIndex: index })
-    props.onClick(index);
-  }
+      </table>
+    </div>
+  )
 }
 
-/*
+const lowercaseAndHyphen = (rawString: string) => {
+  return rawString.toLowerCase().replace(/[^A-Z0-9]+/ig, '-');
+}
 
-{props.accordionItems.map((accordionItem, index) => {
-        <>
-          <SemanticAccordion.Title active={props.activeIndex === index} index={index} onClick={handleOnClick(props, index)}>
-            {accordionItem.title}
-          </SemanticAccordion.Title>
-          <SemanticAccordion.Content>
-            {accordionItem.content}
-          </SemanticAccordion.Content>
-        </>
-      })}
-*/
+const generatePanels = (panels: IAccordionPanel[]) => {
+  return panels.map(panel => {
 
+    const key = `accordion--${lowercaseAndHyphen(panel.title)}`;
+    let TitleComponent = <p className="title--text" id={key}>{panel.title}</p>;
+
+    if(panel.icon) {
+      TitleComponent = (
+        <div className="title--with-icon" id={key}>
+          <span>{panel.title}</span>
+          {/* <Icon verticalAlign color="primary" width={panel.iconSize || 24} height={panel.iconSize || 24} SVG={panel.icon} /> */}
+        </div>
+      )
+    }
+    
+    return {
+      key,
+      title: {  content: TitleComponent },
+      content: { content: panel.content }
+    }
+  });
+}
+
+const Accordion: React.SFC<IProps> = (props) => (
+  <SemanticAccordion id={props.id} panels={generatePanels(props.panels)} {...props} />
+);
 
 export default Accordion;
 
-const accordionItems = [
+const panels = [
   {
-    title: 'This is the first item',
-    content: 'This is the first item body'
-  },
+    title: 'this is accordion 1 title',
+    content: 'This is the content for accordion 1'
+  }, 
   {
-    title: 'This is the second item',
-    content: 'This is the second item body'
-  },
-  {
-    title: 'This is the third item',
-    content: 'This is the third item body'
+    title: 'this is accordion 2 title',
+    content: 'This is the content for accordion 2'
   }
 ];
 
-const onClick = (index: number) => {
-  console.log('accordion #' + JSON.stringify(index) + 'was clicked');
-}
+const editablePanels = [
+  {
+    title: text('title1', 'this is accordion 1 title'),
+    content: text('content1', 'This is the content for accordion 1')
+  }, 
+  {
+    title: text('title2', 'this is accordion 2 title'),
+    content: text('content2', 'This is the content for accordion 2')
+  }
+]
+
+const onePanel = [
+  {
+    title: text('title1', 'this is accordion 1 title'),
+    content: text('content1', 'This is the content for accordion 1')
+  }
+]
+
 
 storiesOf('Accordion', module)
-  .addDecorator(story => <Segment>{story()}</Segment>)
-  .addWithJSX('Basic', () => <Accordion activeIndex={0} accordionItems={accordionItems} onClick={onClick} />)
+  .addDecorator(story => <Segment>{createPropsTable(propTypes)}{story()}</Segment>)
+  .addWithJSX('Basic', () => {
+    return (
+      <div>
+        <Segment>
+          <h3>Only one panel</h3>
+          <Accordion id="accordion--style-guide" panels={onePanel} />
+        </Segment>
+        <Segment>
+          <h3>Multiple panels</h3>
+          <Accordion id="accordion--style-guide" panels={panels} />
+        </Segment>
+        <Segment>
+          <h3>Multiple panels opened at the same time</h3>
+          <Accordion id="accordion--style-guide" panels={panels} exclusive={false}/>
+        </Segment>
+        <Segment>
+          <h3>Try it!</h3>
+          <Accordion id="accordion--style-guide" panels={editablePanels} exclusive={boolean('Open one panel only', false)}/>
+        </Segment>
+      </div>
+    )
+  })
