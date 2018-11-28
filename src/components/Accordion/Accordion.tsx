@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Accordion as SemanticAccordion, Segment } from 'semantic-ui-react';
-import { storiesOf } from '@storybook/react';
-import { boolean, text } from '@storybook/addon-knobs';
+import { addDecorator, storiesOf } from '@storybook/react';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 
 import PropsTable from '../../utils/PropsTable';
 
@@ -80,24 +80,14 @@ const panels = [
   }
 ];
 
-const editablePanels = [
-  {
-    title: text('title1', 'this is accordion 1 title'),
-    content: text('content1', 'This is the content for accordion 1')
-  }, 
-  {
-    title: text('title2', 'this is accordion 2 title'),
-    content: text('content2', 'This is the content for accordion 2')
-  }
-]
-
 const onePanel = [
   {
-    title: text('title1', 'this is accordion 1 title'),
-    content: text('content1', 'This is the content for accordion 1')
+    title: 'this is accordion 1 title',
+    content: 'This is the content for accordion 1'
   }
-]
+];
 
+addDecorator(withKnobs);
 storiesOf('Accordion', module)
   .addDecorator(story => <Segment>{<PropsTable propTypes={propTypes} />}{story()}</Segment>)
   .addWithJSX('Basic', () => {
@@ -117,7 +107,19 @@ storiesOf('Accordion', module)
         </Segment>
         <Segment>
           <h3>Try it!</h3>
-          <Accordion id="accordion--style-guide" panels={editablePanels} exclusive={boolean('Open one panel only', false)}/>
+          <Accordion 
+            id="accordion--style-guide" 
+            panels={[
+                {
+                  title: text('title1', 'this is accordion 1 title'),
+                  content: text('content1', 'This is the content for accordion 1')
+                }, 
+                {
+                  title: text('title2', 'this is accordion 2 title'),
+                  content: text('content2', 'This is the content for accordion 2')
+                }
+            ]} 
+            exclusive={boolean('Open one panel only', false)}/>
         </Segment>
       </div>
     )
