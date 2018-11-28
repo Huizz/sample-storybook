@@ -3,6 +3,8 @@ import { Accordion as SemanticAccordion, Segment } from 'semantic-ui-react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text } from '@storybook/addon-knobs';
 
+import PropsTable from '../../utils/PropsTable';
+
 interface IAccordionPanel {
   title: any;
   content: any;
@@ -14,48 +16,6 @@ interface IProps {
   id: string;
   panels: IAccordionPanel[];
   exclusive?: boolean
-}
-
-const propTypes = [
-  {
-    type: 'id',
-    required: true,
-    description: 'The HTML id attribute of the accordion'
-  },
-  {
-    type: 'panels',
-    required: true,
-    description: 'The content used for each panel'
-  },
-  {
-    type: 'exclusive',
-    required: false,
-    description: 'If set to true, only one panel can be opened at a time. Defaults to true'
-  }
-]
-
-const createPropsTable = (propTypes: any) => {
-  return (
-    <div style={{marginBottom: '32px'}}>
-      <h2>Properties</h2>
-      <table>
-        <thead>
-          <td>Property</td>
-          <td>Required</td>
-          <td>Description</td>
-        </thead>
-        {propTypes.map((prop: any) => {
-          return (
-            <tr>
-              <td>{ prop.type }</td>
-              <td>{ prop.required? 'required' : '' }</td>
-              <td>{ prop.description }</td>
-            </tr>
-          )
-        })}
-      </table>
-    </div>
-  )
 }
 
 const lowercaseAndHyphen = (rawString: string) => {
@@ -91,6 +51,24 @@ const Accordion: React.SFC<IProps> = (props) => (
 
 export default Accordion;
 
+const propTypes = [
+  {
+    type: 'id',
+    required: true,
+    description: 'The HTML id attribute of the accordion'
+  },
+  {
+    type: 'panels',
+    required: true,
+    description: 'The content used for each panel'
+  },
+  {
+    type: 'exclusive',
+    required: false,
+    description: 'If set to true, only one panel can be opened at a time. Defaults to true'
+  }
+]
+
 const panels = [
   {
     title: 'this is accordion 1 title',
@@ -120,9 +98,8 @@ const onePanel = [
   }
 ]
 
-
 storiesOf('Accordion', module)
-  .addDecorator(story => <Segment>{createPropsTable(propTypes)}{story()}</Segment>)
+  .addDecorator(story => <Segment>{<PropsTable propTypes={propTypes} />}{story()}</Segment>)
   .addWithJSX('Basic', () => {
     return (
       <div>
