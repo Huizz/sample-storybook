@@ -4,10 +4,6 @@
 
 @import './variables.scss';
 @import './fonts.scss';
-// $grain: #D7CECC;
-// $blackboard: #565656;
-// $oxblood: #76323F;
-// $tan: #C09F80;
 
 /*********************
     Global styles   
@@ -71,7 +67,7 @@ h3 {
 /******************************
     Import components styles
 *******************************/
-@import '../../semantic/dist/semantic.min.css';
+// @import '../../semantic/dist/semantic.min.css';
 
 @import '../components/Button/Button.scss';
 @import '../components/CustomBreadcrumb/CustomBreadcrumb.scss';

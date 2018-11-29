@@ -1,4 +1,4 @@
-@import 'variables';
+@import './variables';
 
 @mixin medium {
   @media (min-width: #{$small-width + 1}) and (max-width: #{$medium-width}) {
