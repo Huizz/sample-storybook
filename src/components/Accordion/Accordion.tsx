@@ -5,6 +5,8 @@ import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 
 import PropsTable from '../../utils/PropsTable';
 
+import './Accordion.scss';
+
 interface IAccordionPanel {
   title: any;
   content: any;
@@ -93,6 +95,7 @@ storiesOf('Accordion', module)
   .addWithJSX('Basic', () => {
     return (
       <div>
+        <h4>Using template</h4>
         <Segment>
           <h3>Only one panel</h3>
           <Accordion id="accordion--style-guide" panels={onePanel} />
