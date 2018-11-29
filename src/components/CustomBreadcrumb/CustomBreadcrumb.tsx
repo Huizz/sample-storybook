@@ -3,6 +3,8 @@ import { Breadcrumb, Segment } from 'semantic-ui-react';
 import { storiesOf, setAddon } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 
+import './CustomBreadcrumb.scss';
+
 setAddon(JSXAddon);
 
 interface IBreadcrumbItem {

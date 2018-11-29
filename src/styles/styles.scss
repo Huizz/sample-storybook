@@ -64,12 +64,5 @@ h3 {
   max-width: 944px;
 }
 
-/******************************
-    Import components styles
-*******************************/
 // @import '../../semantic/dist/semantic.min.css';
 
-@import '../components/Button/Button.scss';
-@import '../components/CustomBreadcrumb/CustomBreadcrumb.scss';
-@import '../components/SearchBar/SearchBar.scss';
-@import '../components/Accordion/Accordion.scss';
