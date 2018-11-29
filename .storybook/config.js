@@ -6,6 +6,8 @@ import {
   withOptions
 } from '@storybook/addon-options';
 import { withInfo } from '@storybook/addon-info';
+import { withViewport } from '@storybook/addon-viewport';
+
 
 addDecorator(
   withOptions({
@@ -19,7 +21,8 @@ addDecorator(
     inline: true,
     source: false,
   })
-)
+);
+addDecorator(withViewport);
 
 // load all files with the format *.stories.js inside stories folder
 const req = require.context('../stories', true, /.stories.js$/);
