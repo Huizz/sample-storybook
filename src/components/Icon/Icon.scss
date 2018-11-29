@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.icon-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+
+  &--primary {
+    path {
+      fill: $primary-color;
+    }
+  }
+}

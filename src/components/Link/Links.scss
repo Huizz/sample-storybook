@@ -1,0 +1,56 @@
+
+@import "src/styles/variables";
+
+.link {
+  
+  width: 156px;
+  cursor: pointer;
+
+  &--text {
+    color: $primary-color;
+
+    svg {
+      margin-left: 8px;
+    }
+    
+  }
+
+  &--arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  &--name {
+    display: block;
+    margin-top: 5px;
+    text-decoration: underline;
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--header-text {
+  color: $primary-color; 
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+    > span {
+      vertical-align: middle;
+    }
+  }
+
+  &--next {
+    text-align: right;
+    .icon {
+      margin-left: 8px;
+    }
+  }
+
+  &--previous {
+    text-align: left;
+    .icon {
+      margin-right: 8px;
+    }
+  }
+}
