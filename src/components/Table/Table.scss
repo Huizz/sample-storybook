@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 $header-grey: #979797;
 $header-white: #f2f2f2;
@@ -43,6 +44,46 @@ $header-white: #f2f2f2;
 
     &:last-child {
       border-right: none;
+    }
+  }
+}
+
+$table-cell-padding: 16px;
+
+@include small {
+  .ui.table:not(.unstackable) {
+    width: 100%;
+    // padding: 0em;
+
+    tbody,
+    tr,
+    tr > th,
+    tr > td  {
+      display: block !important;
+      width: auto !important;
+    }
+
+    tr > td {
+      border: none;
+      padding: 0 $table-cell-padding;
+
+      &:first-child {
+        font-weight: 600;
+        padding: $table-cell-padding;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $header-grey;
+        padding-bottom: $table-cell-padding;
+      }
+    }
+
+    thead { 
+      display:  none;
+    }
+
+    tfoot {
+      display: block;
     }
   }
 }
