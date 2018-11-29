@@ -1,7 +1,14 @@
-@import 'variables';
-@import 'mixins';
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+$max-button-width: $max-homepage-content-width;
 
 .button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 4px;
   padding: 8px 24px;
   margin: 8px;
@@ -33,27 +40,14 @@
   
 }
 
-.fill {
-  max-width: 100%;
-  width: 100%;
-}
-
-.fit, .responsive-fit {
-  max-width: fit-content;
-  width: auto;
-}
-
-.responsive-fit {
-  @include small {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
 .secondary-text {
   display: block; 
   font-size: 12px;
   line-height: 18px;
   letter-spacing: normal;
   text-align: center;
+
+  @include medium {
+    font-size: 10px;
+  }
 }
