@@ -3,49 +3,134 @@
 **********************/
 
 @import './variables.scss';
+@import './mixins';
 @import './fonts.scss';
 
 /*********************
     Global styles   
 **********************/
+$max-button-width: $max-homepage-content-width;
+
+.bold {
+  font-weight: bold;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
 body {
-  font-size: 14px;
-  font-family: 'OpenSans';
+  margin: 0;
+  font-family: $open-sans;
+  font-size: 16px;
+  line-height: 24px;  
+  color: $text-color;
+  font-weight: normal;
+  letter-spacing: normal;
+
+  body:focus {
+    outline: none !important
+  }
+
 }
 
-.primary {
-  color: $primaryBlue;
+* {
+  box-sizing: border-box;
 }
 
-.ui.color.primary {
-  background-color: $primaryBlue;
-  color: #fff;
-}
-
-.ui.color.secondary {
-  background-color: $secondaryBlue;
-  color: #fff;
-}
 
 h1 {
-  font-family: 'Merriweather';
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-family: $merriweather;
+  font-size: 32px;
+  line-height: 44px;
+  color: $primary-color;
+  font-weight: bold;
+  letter-spacing: normal;
+
+  @include large {
+    font-size: 48px;
+    line-height: 60px;
+  }
 }
 
 h2 {
-  font-family: 'Merriweather';
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 52px;
+  font-size: 32px;
+  line-height: 44px;
+
+  @include large {
+    font-size: 40px;
+    line-height: 52px;
+  }
 }
 
 h3 {
-  font-family: 'Merriweather';
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 44px;
+  font-size: 28px;
+  line-height: 40px;
+
+  @include large {
+    font-size: 32px;
+    line-height: 44px;
+  }
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 28px;
+
+  @include large {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 20px;
+
+  @include large {
+    font-style: 12px;
+    line-height: 18px;
+  }
+}
+
+h2,
+h3,
+h4,
+h5 {
+  color: $text-color;
+  font-family: $open-sans;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.fill {
+  max-width: 100%;
+  width: 100%;
+
+  @include medium {
+    width: $max-button-width;
+    max-width: $max-button-width;
+  }
+}
+
+.fit, .responsive-fit {
+  width: auto;
+}
+
+.responsive-fit {
+  @include small {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.no-underline {
+  text-decoration: none!important;
 }
 
 /********************
