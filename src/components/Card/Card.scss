@@ -1,0 +1,35 @@
+@import 'src/styles/variables';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+
+  &--title {
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: left;
+
+    &--primary {
+      color: $primary-color
+    }
+    &--black {
+      color: $text-color
+    }
+  }
+
+  &--description {
+    margin: 16px 0 0 0;
+    color: $text-color;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
