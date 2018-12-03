@@ -30,6 +30,8 @@ const Button: React.SFC<IProps> = (props) => {
     );
 };
 
+export default Button;
+
 const propTypes = [
     {
         name: 'name',
