@@ -14,7 +14,7 @@ interface IComponent {
 export interface IProps extends IComponent {
     name: string;
     secondaryText?: string
-    type: 'primary' | 'ghost' | string;
+    type: 'primary' | 'ghost' | 'secondary' | string;
     length: 'fill' | 'fit' | 'responsive-fit' | string;
     onClick?(): void;
 }
@@ -32,17 +32,20 @@ const Button: React.SFC<IProps> = (props) => {
 
 const propTypes = [
     {
-        type: 'name',
+        name: 'name',
+        type: 'string',
         required: true,
         description: 'The text that is displayed on the button'
     },
     {
-        type: 'secondaryText',
+        name: 'secondaryText',
+        type: 'string',
         required: false,
         description: 'The small line of text to display under the name'
     },
     {
-        type: 'type',
+        name: 'type',
+        type: 'string',
         required: true,
         description: 'The type of button. One of primary or ghost'
     }

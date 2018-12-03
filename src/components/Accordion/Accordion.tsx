@@ -55,17 +55,20 @@ export default Accordion;
 
 const propTypes = [
   {
-    type: 'id',
+    name: 'id',
+    type: 'string',  
     required: true,
     description: 'The HTML id attribute of the accordion'
   },
   {
-    type: 'panels',
+    name: 'panels',
+    type: 'Array',
     required: true,
     description: 'The content used for each panel'
   },
   {
-    type: 'exclusive',
+    name: 'exclusive',
+    type: 'boolean',
     required: false,
     description: 'If set to true, only one panel can be opened at a time. Defaults to true'
   }
