@@ -1,34 +1,89 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+$arrow-height: 6px;
+
 .ui.accordion {
+
   .title {
-    display: block;
-    padding: 16px;
-    border: 1px solid black;
-    border-radius: 4px;
-    margin-bottom: 8px;
+    border-top: 1px solid $hover-grey;
     cursor: pointer;
+    height: 100%;
+    position: relative;
+    
+    &--with-icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      >span {
+        padding: 16px;
+        color: $primary-color;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+
+    &--icon {
+      width: 40px;
+      height: 40px;
+      justify-self: center;
+      align-self: center;
+      margin-right: 16px;
+      margin: none;
+    }
+
+    &--text {
+      color: $primary-color;
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 36px;
+
+      &::before {
+        content: "";
+        border-left: $arrow-height solid $primary-color;
+        border-top: $arrow-height solid transparent;
+        border-bottom: $arrow-height solid transparent;
+        left: 20px;
+        margin-top: 6px;
+        position: absolute;
+      }
+
+    }
 
     &.active {
       margin-bottom: 0;
-      border-radius: 4px 4px 0 0;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+
+      >p {
+        &::before {
+          content: "";
+          border-left: $arrow-height solid transparent;
+          border-top: $arrow-height solid $primary-color;
+          border-right: $arrow-height solid transparent;
+          left: 20px;
+          margin-top: 9px;
+          position: absolute;
+        }
+      }
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: 1px solid $hover-grey;
     }
   }
 
-  // @TODO: animation when dropdown opens
   .content {
     overflow: hidden;
     max-height: 0;
-    transition: max-height 1.5s ease-out;
-    border: none;
-    // margin-bottom: 8px;
+    transition: max-height 0.25s ease-in-out;
 
     &.active {
-      max-height: 500px;
-      transition: max-height 2s ease-out;
-      // border: 1px solid black;
-      // border-top: none;
+      transition: max-height 0.35s ease-in-out;
+      border-top: none;
     }
 
-    > .content--body {
+    >.content--body {
       padding: 16px;
     }
   }
