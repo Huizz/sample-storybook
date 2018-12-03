@@ -7,7 +7,7 @@ interface IProps {
   width: number;
   height: number;
   verticalAlign?: boolean;
-  SVG?: any
+  SVG: any
 }
 
 interface IStyle {
