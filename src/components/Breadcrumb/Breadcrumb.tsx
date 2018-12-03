@@ -3,9 +3,9 @@ import { Breadcrumb as SemanticBreadcrumb, Segment } from 'semantic-ui-react';
 import { lowercaseAndHyphen } from 'utils/strings';
 import Link from 'components/Link';
 import Icon from 'components/Icon/Icon';
-import PropsTable from '../../utils/PropsTable';
+import PropsTable from '../../utils/PropsTable/index';
 
-import './CustomBreadcrumb.scss';
+import './Breadcrumb.scss';
 
 import { storiesOf, setAddon } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
@@ -37,11 +37,11 @@ const generateBreadcrumb = (pages: ILinkItem[], currentPageName: string) => {
     const divider = <Icon color="primary" height={20} width={20} SVG={RightCaretIcon} />
     const linkKey = `breadcrumb-link-${index}`;
     const dividerKey = `breadcrumb-divider-${index}`;
-    breadcrumbComponents.push(<SemanticBreadcrumb.Section link key={linkKey} id={linkKey} as={'div'} className="breadcrumb-section">{link}</SemanticBreadcrumb.Section>);
-    breadcrumbComponents.push(<SemanticBreadcrumb.Divider key={dividerKey}>{divider}</SemanticBreadcrumb.Divider>);
+    breadcrumbComponents.push(<span key={linkKey} id={linkKey} className="breadcrumb-section">{link}</span>);
+    breadcrumbComponents.push(<span key={dividerKey}>{divider}</span>);
   });
 
-  breadcrumbComponents.push(<SemanticBreadcrumb.Section active key="breadcrumb-active" id="breadcrumb-active">{currentPageName}</SemanticBreadcrumb.Section>);
+  breadcrumbComponents.push(<span key="breadcrumb-active" id="breadcrumb-active" className="active">{currentPageName}</span>);
   return breadcrumbComponents;
 }
 
