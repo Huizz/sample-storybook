@@ -13,25 +13,29 @@ interface IProps {
 
 const PropsTable = (props: IProps) => {
   return (
-    <div style={{marginBottom: '32px'}}>
+    <div style={{ marginBottom: '32px' }}>
       <h3>Properties</h3>
       <table className="ui table">
         <thead>
-          <th>Property</th>
-          <th>Type</th>
-          <th>Required</th>
-          <th>Description</th>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
         </thead>
-        {props.propTypes.map((prop: IPropType) => {
-          return (
-            <tr>
-              <td>{ prop.name }</td>
-              <td>{ prop.type }</td>
-              <td>{ prop.required? 'required' : '' }</td>
-              <td>{ prop.description }</td>
-            </tr>
-          )
-        })}
+        <tbody>
+          {props.propTypes.map((prop: IPropType, index: number) => {
+            return (
+              <tr key={index}>
+                <td>{prop.name}</td>
+                <td>{prop.type}</td>
+                <td>{prop.required ? 'required' : ''}</td>
+                <td>{prop.description}</td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
     </div>
   )
