@@ -107,8 +107,18 @@ $arrow-height: 6px;
   }
 
   &--accordion {
+    .title.active {
+      border-bottom: none;
+    }
+
+    .content.active {
+      border-bottom: 1px solid $hover-grey;
+    }
+    
     @include medium {
       display: none;
     }
   }
+  
+  
 }

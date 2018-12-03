@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import Link from 'components/Link';
 import Accordion from 'components/Accordion';
+import { lowercaseAndHyphen } from 'utils/strings';
 
 import './InternalMenu.scss';
 
@@ -29,7 +30,7 @@ class InternalMenu extends React.Component<IProps> {
   generateLinks = (links: ILinkItem[], type: string) => (
     
     links.map((item, index) => {
-      const id = `internal-menu-${type}--${item.name}`;
+      const id = `internal-menu-${type}--${lowercaseAndHyphen(item.name)}`;
       let GeneratedLink = <Link.A componentId={id} noUnderline href={item.path}><p>{item.name}</p></Link.A>
       if(this.props.links[this.props.activeIndex].path === item.path){
         GeneratedLink = <p id={id} className="internal-menu--active--link">{item.name}</p>
@@ -78,6 +79,7 @@ class InternalMenu extends React.Component<IProps> {
 } 
 
 export default InternalMenu;
+
 const links: ILinkItem[] = [
   { 
     name: 'First link',
