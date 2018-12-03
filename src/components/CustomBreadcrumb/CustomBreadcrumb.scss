@@ -1,8 +1,13 @@
 @import '../../styles/variables';
 
 .ui.breadcrumb {
-    position: relative;
+    // position: relative;
+    display: inline-flex !important;
     font-size: 14px;
+
+    >* {
+        margin-right: 8px;
+    }
 
     a {
         text-decoration: none;
@@ -23,16 +28,19 @@
         }
     }
 
-    .right.angle.icon {
-        display: inline-block;
-        position: relative;
-        height: 16px;
-        width: 16px;
-
-        &:before {
-            content: '\003e';
-            font-size: 16px;
-            line-height: 16px;
-        }
+    .divider {
+        line-height: 35px;
     }
 }
+.ui.breadcrumb {
+    display: inline-flex!important;
+    > * {
+      margin-right: 4px;
+    }
+    span {
+      margin-top: 3px;
+    }
+    >.active.section{
+      font-weight: bold;
+    }
+  }
