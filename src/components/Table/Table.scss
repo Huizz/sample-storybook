@@ -14,6 +14,7 @@ $header-white: #f2f2f2;
   font-size: 16px;
   line-height: 24px;
   color: $text-color;
+  margin: 24px 0;
 
   thead {
     border-radius: 20px;
@@ -26,6 +27,7 @@ $header-white: #f2f2f2;
     text-align: left;
     background-color: $header-white;
     font-weight: 600;
+    white-space: nowrap;
 
     &:first-child {
       border-radius: 4px 0 0 0;
@@ -41,10 +43,19 @@ $header-white: #f2f2f2;
     padding: 12px;
     border-right: 1px solid $header-grey;
     border-bottom: 1px solid $header-grey;
+    vertical-align: top;
+
+    &:first-child {
+      max-width: 50%;
+    }
 
     &:last-child {
       border-right: none;
     }
+  }
+
+  td span.table--cell--mobile-label {
+    display: none;
   }
 }
 
@@ -70,6 +81,7 @@ $table-cell-padding: 16px;
       &:first-child {
         font-weight: 600;
         padding: $table-cell-padding;
+        max-width: 100%;
       }
 
       &:last-child {
@@ -84,6 +96,10 @@ $table-cell-padding: 16px;
 
     tfoot {
       display: block;
+    }
+    
+    td span.table--cell--mobile-label {
+      display: inline;
     }
   }
 }
