@@ -16,12 +16,6 @@ addDecorator(
   })
 );
 
-addDecorator(
-  withInfo({
-    inline: true,
-    source: false,
-  })
-);
 addDecorator(withViewport);
 
 // load all files with the format *.stories.js inside stories folder
