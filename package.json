@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "build": "build-storybook -c .storybook -o .out",
+    "deploy": "storybook-to-ghpages",
     "build-semantic": "cd semantic && gulp build-css build-assets",
     "watch-semantic": "npm run build-semantic && gulp watch"
   },
@@ -19,6 +21,7 @@
     "@storybook/addon-options": "^4.0.4",
     "@storybook/addon-viewport": "^4.0.9",
     "@storybook/react": "^4.0.4",
+    "@storybook/storybook-deployer": "^2.5.0",
     "@types/jest": "^23.3.9",
     "@types/react": "^16.4.18",
     "@types/storybook-addon-jsx": "^5.4.0",
@@ -38,6 +41,7 @@
     "storybook-addon-jsx": "^5.4.0",
     "style-loader": "^0.23.1",
     "ts-jest": "^23.10.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.1.6"
   },
   "dependencies": {
