@@ -105,7 +105,7 @@ const propTypes = [
     name: 'panels',
     type: 'Array',
     required: true,
-    description: 'The content used for each panel'
+    description: 'The content used for each panel. Each panel is an object { title: string, content: any }'
   }
 ]
 
@@ -133,7 +133,6 @@ storiesOf('Accordion', module)
   .addWithJSX('Basic', () => {
     return (
       <div>
-        <h4>Using template</h4>
         <Segment>
           <h3>Only one panel</h3>
           <Accordion id="accordion--style-guide" panels={onePanel} />
