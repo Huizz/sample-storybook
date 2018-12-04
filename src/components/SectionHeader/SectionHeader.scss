@@ -1,0 +1,24 @@
+@import 'src/styles/mixins';
+
+.section-header {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h4 {
+    margin: 0;
+    @include small {
+      margin-right: 33px;
+    }
+  }
+
+  .scroll-to-top--wrapper {
+    flex: 0 0 53px;
+    
+    @include medium {
+      display:none;
+    }
+  }
+
+}

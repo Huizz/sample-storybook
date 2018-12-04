@@ -1,0 +1,26 @@
+@import 'src/styles/variables';
+
+.mini-label {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: auto;
+}
+
+.mini-label-text {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  color: $text-color;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.mini-label-underline {
+  background: $text-color;
+  width: 70px;
+  margin: 3px auto 0;
+  height: 1px;
+  font-size: 16px;
+  font-weight: 600;
+}
