@@ -102,6 +102,15 @@ $column-sizes: (1, one),
           (11, eleven),
           (12, twelve);
 
+@each $number, $name in $column-sizes {
+  .ui.grid > .row > [class*="#{$name} wide mobile"].column,
+  .ui.grid > .column.row > [class*="#{$name} wide mobile"].column,
+  .ui.grid > [class*="#{$name} wide mobile"].column,
+  .ui.column.grid > [class*="#{$name} wide mobile"].column {
+    width: ($number / $columns * 100%);
+  }
+}
+
 @include medium {
   .ui.grid > .row > [class*="wide tablet"].column,
   .ui.grid > .column.row > [class*="wide tablet"].column,

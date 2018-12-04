@@ -21,7 +21,7 @@ interface IProps {
 
 const generateSingleRowColumns = (columns: IColumn[]) => {
   return columns.map((column, columnIndex) => {
-    return <SemanticGrid.Column computer={column.columnWidth}>
+    return <SemanticGrid.Column computer={column.columnWidth} tablet={column.columnWidth} mobile={12}>
       <div>{column.columnWidth}</div>
     </SemanticGrid.Column>
   })
