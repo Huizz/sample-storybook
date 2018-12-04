@@ -23,7 +23,7 @@
   }
 
   @include large {
-    > * {
+    > *:not(.fit) {
       max-width: none;
       width: $max-width;
       margin-left: auto;
