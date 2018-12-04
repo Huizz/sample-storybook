@@ -7,3 +7,4 @@ semantic/dist/*
 .Ds_Store
 .cache/
 node_modules/
+build/
