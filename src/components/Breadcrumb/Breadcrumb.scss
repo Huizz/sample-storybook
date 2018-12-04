@@ -1,37 +1,3 @@
-@import '../../styles/variables';
-
-.ui.breadcrumb {
-    // position: relative;
-    display: inline-flex !important;
-    font-size: 14px;
-
-    >* {
-        margin-right: 8px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .section {
-        color: $secondaryBlue;
-        padding: 8px;
-        display: inline-block;
-
-        &.active {
-            color: $secondaryBlue;
-            text-decoration: underline;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .divider {
-        line-height: 35px;
-    }
-}
 .ui.breadcrumb {
     display: inline-flex!important;
     > * {
@@ -40,7 +6,7 @@
     span {
       margin-top: 3px;
     }
-    >.active.section{
+    >.active{
       font-weight: bold;
     }
   }

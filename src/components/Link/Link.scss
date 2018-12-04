@@ -9,6 +9,14 @@
   &--text {
     color: $primary-color;
 
+    &:hover:not(:focus) {
+      color: $primary-highlight-color;
+    }
+
+    &:focus {
+      outline: 2px solid $focus-color;
+    }
+
     svg {
       margin-left: 8px;
     }
@@ -36,6 +44,17 @@
   font-weight: 600;
     > span {
       vertical-align: middle;
+    }
+  }
+
+
+  &--next-prev {
+    padding:8px;
+    &:focus {
+      background: $focus-color;
+    }
+    &:hover:not(:focus) {
+      background: $hover-color;
     }
   }
 

@@ -11,76 +11,82 @@ $arrow-height: 6px;
     margin: 0;
     list-style: none;
 
-    li {
+    a,
+    p {
+      display: block;
       cursor: pointer;
       position: relative;
-      padding-left: 22px;
+      color: $primary-color;
+      padding: 8px 8px 8px 22px;
+      font-size: 16px;
+      line-height: 24px;
 
-      p {
-        color: $primary-color;
-        margin: 0 0 16px;
-        font-size: 16px;
-        line-height: 24px;
+
+      &:hover:not(:focus) {
+        background: $hover-color;
+      }
+
+      &::before {
+        position: absolute;
+        width: 0;
+        height: 0;
+        content: "";
+        top: 14px;
+        left: 8px;
+        border-top: $arrow-height solid transparent;
+        border-bottom: $arrow-height solid transparent;
+        border-left: $arrow-height solid $primary-color;
+
+        @include medium {
+          top: 12px;
+          border-top: 4px solid transparent;
+          border-bottom: 4px solid transparent;
+          border-left: 4px solid $primary-color;
+        }
+      }
+
+      &.internal-menu--active--link {
+        color: $text-color;
+        font-weight: 600;
+        cursor: default;
+        padding-left: 22px;
+        padding-right: 8px;
+        margin: 0;
 
         &::before {
           position: absolute;
           width: 0;
           height: 0;
-          content: '';
-          top: $arrow-height;
+          content: "";
+          top: 14px;
           left: 8px;
           border-top: $arrow-height solid transparent;
           border-bottom: $arrow-height solid transparent;
-          border-left: $arrow-height solid $primary-color;
+          border-left: $arrow-height solid $text-color;
 
           @include medium {
-            top: 4px;
+            top: 12px;
             border-top: 4px solid transparent;
             border-bottom: 4px solid transparent;
-            border-left: 4px solid $primary-color;
-          }
-        }
-
-        &.internal-menu--active--link {
-          color: $text-color;
-          font-weight: 600;
-          cursor: default;
-
-          &::before {
-            position: absolute;
-            width: 0;
-            height: 0;
-            content: '';
-            top: $arrow-height;
-            left: 8px;
-            border-top: $arrow-height solid transparent;
-            border-bottom: $arrow-height solid transparent;
-            border-left: $arrow-height solid $text-color;
-  
-            @include medium {
-              top: 4px;
-              border-top: 4px solid transparent;
-              border-bottom: 4px solid transparent;
-              border-left: 4px solid $text-color;
-            }
+            border-left: 4px solid $text-color;
           }
         }
       }
     }
 
     @include medium {
-      li p {
+      a, p {
         font-size: 12px;
         line-height: 18px;
-        font-weight: 400;        
+        font-weight: 400;
       }
     }
 
     @include large {
-      li p {
+      a, p {
         font-size: 12px;
         line-height: 18px;
-        font-weight: 400;        
+        font-weight: 400;
       }
     }
   }
@@ -107,18 +113,33 @@ $arrow-height: 6px;
   }
 
   &--accordion {
-    .title.active {
-      border-bottom: none;
+    .ui.accordion {
+      .title {
+        border-bottom: 1px solid $hover-grey;
+
+        &.active {
+          border-bottom: none;
+        }
+      }
+  
+      .content.active {
+        border-bottom: 1px solid $hover-grey;
+      }
     }
 
-    .content.active {
-      border-bottom: 1px solid $hover-grey;
+    .internal-menu--links .link--text > p,
+    .internal-menu--links li > p.internal-menu--active--link {
+      margin: 0;
+      padding: 8px 0;
+      vertical-align: middle;
+
+      &::before {
+        top: 14px;
+      }
     }
-    
+
     @include medium {
       display: none;
     }
   }
-  
-  
 }

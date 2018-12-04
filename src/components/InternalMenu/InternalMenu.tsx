@@ -31,11 +31,11 @@ class InternalMenu extends React.Component<IProps> {
     
     links.map((item, index) => {
       const id = `internal-menu-${type}--${lowercaseAndHyphen(item.name)}`;
-      let GeneratedLink = <Link.A componentId={id} noUnderline href={item.path}><p>{item.name}</p></Link.A>
+      let GeneratedLink = <Link.A key={id} componentId={id} noUnderline href={item.path}>{item.name}</Link.A>
       if(this.props.links[this.props.activeIndex].path === item.path){
-        GeneratedLink = <p id={id} className="internal-menu--active--link">{item.name}</p>
+        GeneratedLink = <p key={id} id={id} className="internal-menu--active--link">{item.name}</p>
       }
-      return<li key={index}>{GeneratedLink}</li>;
+      return GeneratedLink;
     })
   );
   
