@@ -149,5 +149,21 @@ h5 {
   max-width: 944px;
 }
 
+.desktop-only {
+  display: none;
+
+  @include medium {
+    display: inline-block;
+  }
+}
+
+.mobile-only {
+  display: inline-block;
+
+  @include medium {
+    display: none;
+  }
+}
+
 // @import '../../semantic/dist/semantic.min.css';
 
