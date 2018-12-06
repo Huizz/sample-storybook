@@ -1,0 +1,39 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.eol-tab{
+  .ui.menu {
+    display: flex;
+    color: $primary-color;
+
+    .item {
+      position: relative;
+      vertical-align: middle;
+      font-style: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      flex: 0 0 50%;
+      padding: 8px 16px;
+
+      &.active {
+        border-bottom: 1px solid $primary-color;
+      }
+    }
+  }
+
+  .ui.tab {
+    display: none;
+  
+    &.active,
+    &.open {
+      display: block;
+    }
+  }
+
+  @include medium {
+    display: none;
+  }
+}
