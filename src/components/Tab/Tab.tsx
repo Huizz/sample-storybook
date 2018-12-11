@@ -49,6 +49,7 @@ storiesOf('Tab', module)
       <>
         <Segment style={{border: '1px solid black'}}>
           <h3>Tab</h3>
+          <span>*Only on mobile view*</span>
           <Tab tabs={tabs}/>
         </Segment>
       </>
