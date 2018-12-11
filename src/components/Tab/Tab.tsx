@@ -42,9 +42,9 @@ const tabs = [
   }
 ]
 
-storiesOf('Experiment', module)
+storiesOf('Tab', module)
   .addDecorator(story => <Segment>{story()}</Segment>)
-  .addWithJSX('Tab', () => {
+  .addWithJSX('Basic', () => {
     return (
       <>
         <Segment style={{border: '1px solid black'}}>
