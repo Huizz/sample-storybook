@@ -33,7 +33,8 @@
     text-align: left;
   }
 
-  &--input {
+  &--input,
+  &--textarea {
     font-family: $open-sans;
     margin-top: 16px;
     height: 48px;
@@ -72,5 +73,11 @@
     @include medium {
       width: auto;
     }
+  }
+
+  &--textarea {
+    height: 500px;
+    width: 100%;
+    resize: none;
   }
 }
