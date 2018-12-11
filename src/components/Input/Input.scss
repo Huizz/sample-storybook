@@ -1,0 +1,76 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.textarea {
+  height: 120px;
+}
+
+.input--group {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+
+  &--title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $text-color;
+
+  }
+
+  &--subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    color: $text-color;
+  }
+
+  &--error {
+    font-size: 16px;
+    line-height: 24px;
+    color: $error-color;
+    text-align: left;
+  }
+
+  &--input {
+    font-family: $open-sans;
+    margin-top: 16px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    color: $text-color;
+    max-width: 100%;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 16px;
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $placeholder-color;
+      opacity: 1; /* Firefox */
+    }
+  
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $placeholder-color;
+    }
+  
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $placeholder-color;
+    }
+
+    &:focus, &:active {
+      outline: none;
+      border: 2px solid $primary-color;
+    }
+
+    &:hover:not(:focus) {
+      outline: none;
+      border: 1px solid $primary-highlight-color;
+    }
+
+    @include medium {
+      width: auto;
+    }
+  }
+}
