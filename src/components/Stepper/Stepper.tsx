@@ -59,7 +59,7 @@ storiesOf('Stepper', module)
         <Segment style={{border: '1px solid black'}}>
           <h3>Stepper</h3>
           <Stepper totalSteps={3} currentStep={1} showTitle={true} stepsInfo={titles}/>
-          <Stepper totalSteps={2} currentStep={1} showTitle={true} stepsInfo={titles}/>
+          <Stepper totalSteps={2} currentStep={1} showTitle={false}/>
         </Segment>
       </>
     )
