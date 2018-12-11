@@ -1,0 +1,18 @@
+@import 'src/styles/variables';
+
+.stepper {
+  .step--progress--wrapper {
+    display: flex;
+  }
+
+  .step--progress {
+    flex: 0 0 25%;
+    background-color: $steps-grey;
+    height: 6px;
+    margin-right: 8px;
+
+    &.active {
+      background-color: $primary-color;
+    }
+  }
+}
