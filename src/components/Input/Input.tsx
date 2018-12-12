@@ -28,12 +28,13 @@ interface IProps {
 interface IState {
   hasError: boolean;
   constraints: Object;
+  error: Object;
 }
 
 class Input extends React.Component <IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    this.state = { constraints: this.buildConstraints(props), hasError: false };
+    this.state = { constraints: this.buildConstraints(props), hasError: false, error: {} };
   }
 
   render = () => {
@@ -49,7 +50,7 @@ class Input extends React.Component <IProps, IState> {
           placeholder={this.props.placeholder}
           className={`input--group--${this.props.textarea ? 'textarea' : 'input'}`}
           onChange={this.onChange} />
-        {this.state.hasError && this.props.showError && <p className="input--group--error">{this.props.errorMessage}</p>}
+        {this.state.hasError && this.props.showError && <p className="input--group--error">{this.state.error[this.props.componentId]}</p>}
       </div>
     );
   }
@@ -57,10 +58,14 @@ class Input extends React.Component <IProps, IState> {
   onChange = (event: any) => {
     let inputValue = {};
     if (event.target.value) {
-      inputValue[this.props.name] = event.target.value;
+      inputValue[this.props.componentId] = event.target.value;
     }
     const errors = Validator.validate(inputValue, this.state.constraints);
-    console.log(errors, 'errors');
+
+    if(errors) {
+      this.setState({ hasError: true });
+      this.setState({ error: errors });
+    }
     this.props.onTextChange(event, errors);
   }
 
@@ -70,7 +75,7 @@ class Input extends React.Component <IProps, IState> {
     }
 
     let constraints = {};
-    constraints[inputProps.name] = {};
+    constraints[inputProps.componentId] = {};
     let lengthConstraint = {};
 
     if (inputProps.minLength) {
@@ -81,10 +86,10 @@ class Input extends React.Component <IProps, IState> {
       lengthConstraint = Validator.extend(lengthConstraint, { minimum: inputProps.minLength });
     }
 
-    constraints[inputProps.name].length = lengthConstraint;
+    constraints[inputProps.componentId].length = lengthConstraint;
 
     if (inputProps.required) {
-      constraints[inputProps.name].presence = true;
+      constraints[inputProps.componentId].presence = true;
     }
 
     return constraints;
