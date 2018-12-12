@@ -50,7 +50,7 @@ class Input extends React.Component <IProps, IState> {
           placeholder={this.props.placeholder}
           className={`input--group--${this.props.textarea ? 'textarea' : 'input'}`}
           onChange={this.onChange} />
-        {this.state.hasError && this.props.showError && <p className="input--group--error">{this.state.error[this.props.componentId]}</p>}
+        {this.state.hasError && this.props.showError && <p className="input--group--error">{this.state.error[this.props.name]}</p>}
       </div>
     );
   }
@@ -58,7 +58,7 @@ class Input extends React.Component <IProps, IState> {
   onChange = (event: any) => {
     let inputValue = {};
     if (event.target.value) {
-      inputValue[this.props.componentId] = event.target.value;
+      inputValue[this.props.name] = event.target.value;
     }
     const errors = Validator.validate(inputValue, this.state.constraints);
 
@@ -75,7 +75,7 @@ class Input extends React.Component <IProps, IState> {
     }
 
     let constraints = {};
-    constraints[inputProps.componentId] = {};
+    constraints[inputProps.name] = {};
     let lengthConstraint = {};
 
     if (inputProps.minLength) {
@@ -86,10 +86,10 @@ class Input extends React.Component <IProps, IState> {
       lengthConstraint = Validator.extend(lengthConstraint, { minimum: inputProps.minLength });
     }
 
-    constraints[inputProps.componentId].length = lengthConstraint;
+    constraints[inputProps.name].length = lengthConstraint;
 
     if (inputProps.required) {
-      constraints[inputProps.componentId].presence = true;
+      constraints[inputProps.name].presence = true;
     }
 
     return constraints;

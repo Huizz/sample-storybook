@@ -9,6 +9,7 @@ import { storiesOf } from '@storybook/react';
 interface IFormState {
   formConstraints: Object;
   formErrors: Array<Object>;
+  formSubmitted: boolean;
 }
 
 interface IFormProps {
@@ -19,15 +20,16 @@ class Form extends React.Component<IFormProps, IFormState> {
   state = {
     formConstraints: {},
     formErrors: [],
+    formSubmitted: false
   }
 
   render = () => {
     return (
-      <form onSubmit={(e: any) => { e.preventDefault(); console.log('e: ', e) }}>
+      <form onSubmit={this.handleFormSubmit}>
         <h4>This is a form</h4>
-        <Input componentId='form--input' type='string' title='name' onTextChange={this.onInputChange} name='input--name' subtitle='this is the input subtitle' required showError={this.showError('form--input')} />
-        <Input componentId='form--textarea' type='string' title='name' height={600} onTextChange={this.onInputChange} name='textarea--name' subtitle='this is the textarea subtitle' textarea={true} />
-        <button type='subtmit'>Submit form</button>
+        <Input componentId='form--input-1' type='string' title='Input show error on type' onTextChange={this.onInputChange} name='input--name' subtitle='this is the input subtitle' required showError={this.showError('input--name')} />
+        <Input componentId='form--input-2' type='string' title='Input show error on submit' onTextChange={this.onInputChange} name='input--name-2' subtitle='this is the input2 subtitle' required minLength={20} showError={this.showErrorOnSubmit('input--name-2')} />
+        <button type='submit'>Submit form</button>
       </form> 
     )
   }
@@ -40,17 +42,30 @@ class Form extends React.Component<IFormProps, IFormState> {
     }
   }
 
-  showError = (inputId: string) => {
+  showError = (inputName: string) => {
     // @TODO: handle if error should only show on form submit
     if(this.state.formErrors.length) {
       const foundError = _.find(this.state.formErrors, (error: any) => {
-        return error[inputId] != null
+        return error[inputName] != null
       })
 
       return foundError != null;
     }
 
     return false;
+  }
+
+  showErrorOnSubmit = (inputId: string) => {
+    if (!this.state.formSubmitted) {
+      return;
+    }
+
+    return this.showError(inputId);
+  }
+
+  handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    this.setState({ formSubmitted: true });
   }
 }
 
