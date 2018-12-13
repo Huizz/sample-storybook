@@ -83,7 +83,7 @@ class Input extends React.Component <IProps, IState> {
     }
 
     if (inputProps.maxLength) {
-      lengthConstraint = Validator.extend(lengthConstraint, { minimum: inputProps.minLength });
+      lengthConstraint = Validator.extend(lengthConstraint, { maximum: inputProps.maxLength });
     }
 
     constraints[inputProps.name].length = lengthConstraint;
