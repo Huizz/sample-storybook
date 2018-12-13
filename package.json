@@ -24,6 +24,7 @@
     "@storybook/storybook-deployer": "^2.5.0",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.119",
+    "@types/moment": "^2.13.0",
     "@types/react": "^16.4.18",
     "@types/storybook-addon-jsx": "^5.4.0",
     "@types/storybook__addon-info": "^3.4.2",
@@ -47,7 +48,9 @@
   },
   "dependencies": {
     "@types/joi": "^14.0.0",
+    "@types/react-dates": "^17.1.4",
     "lodash": "^4.17.11",
+    "moment": "^2.23.0",
     "react": "^16.6.1",
     "react-dates": "^18.3.1",
     "react-dom": "^16.6.1",
